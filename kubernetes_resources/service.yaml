@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: artimation-service
+spec:
+  selector:
+    app: artimation
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: NodePort
