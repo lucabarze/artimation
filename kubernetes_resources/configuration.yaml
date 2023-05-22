@@ -8,7 +8,7 @@ spec:
     brokerPodSpec:
       containers:
       - name: artimation
-        image: lucabarze/artimation:0.1
+        image: lucabarze/artimation:0.2
         securityContext:
           privileged: true
       volumes:

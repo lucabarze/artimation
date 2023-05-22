@@ -1,27 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Hand Drawing</title>
-    </head>
-    <body>
-        <h1>Hand Drawing</h1>
-        <img id="video" src="/video_feed" />
-        <img id="canvas" src="/canvas_feed" />
-        <p id="prediction"></p>
-        <button id="reset" onclick="resetCanvas()">Reset Canvas</button>
-        <script>
-            function updatePrediction() {
-                fetch('/prediction')
-                    .then(response => response.json())
-                    .then(data => document.getElementById('prediction').innerText = "Predicted object: " + data.prediction);
-            }
 
-            function resetCanvas() {
-                fetch('/reset_canvas', { method: 'POST' });
-            }
+<head>
+    <title>Webcam streaming</title>
+</head>
 
-            // Update the prediction every second
-            setInterval(updatePrediction, 1000);
-        </script>
-    </body>
+<body>
+    <h1>Webcam streaming</h1>
+    <img src="{{ url_for('video_feed') }}" />
+</body>
+
 </html>
