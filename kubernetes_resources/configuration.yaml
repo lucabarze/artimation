@@ -1,0 +1,24 @@
+apiVersion: akri.sh/v0
+kind: Configuration
+metadata:
+  name: artimotion
+spec:
+  brokerProperties: {}
+  brokerSpec:
+    brokerPodSpec:
+      containers:
+      - name: artimotion
+        image: lucabarze/artimotion:0.1
+        securityContext:
+          privileged: true
+      volumes:
+      - name: dev
+        hostPath:
+          path: /dev
+  capacity: 1
+  discoveryHandler:
+    discoveryDetails: |
+      udevRules:
+      - KERNEL=="video[0-9]*"
+    name: udev
+

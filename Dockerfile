@@ -1,8 +1,11 @@
-FROM registry.suse.com/bci/python:3.6
+FROM registry.suse.com/bci/python:3.10
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+
+# Install OS dependencies
+RUN zypper install -y Mesa-libGL1 libglib-2_0-0 libgthread-2_0-0
 
 # Set work directory
 WORKDIR /app
@@ -18,4 +21,4 @@ COPY . /app/
 EXPOSE 8000
 
 # Run the application:
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "app:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "--worker-class", "gevent", "app:app"]
