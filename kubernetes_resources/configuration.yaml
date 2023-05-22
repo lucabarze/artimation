@@ -1,14 +1,14 @@
 apiVersion: akri.sh/v0
 kind: Configuration
 metadata:
-  name: artimotion
+  name: artimation
 spec:
   brokerProperties: {}
   brokerSpec:
     brokerPodSpec:
       containers:
-      - name: artimotion
-        image: lucabarze/artimotion:0.1
+      - name: artimation
+        image: lucabarze/artimation:0.1
         securityContext:
           privileged: true
       volumes:
