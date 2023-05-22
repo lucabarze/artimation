@@ -19,6 +19,6 @@ spec:
   discoveryHandler:
     discoveryDetails: |
       udevRules:
-      - KERNEL=="video[0-9]*"
+      - SUBSYSTEM=="video4linux", KERNEL=="video[0-9]*"
     name: udev
 
