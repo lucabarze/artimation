@@ -4,7 +4,7 @@ metadata:
   name: artimation-service
 spec:
   selector:
-    app: artimation
+    akri.sh/configuration: artimation
   ports:
     - protocol: TCP
       port: 8000
